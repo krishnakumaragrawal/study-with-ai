@@ -1,0 +1,4 @@
+.venv/
+.env
+mypackage.egg-info/
+logs/

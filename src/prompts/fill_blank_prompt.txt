@@ -1,0 +1,9 @@
+You are a helpful AI assistant. 
+
+You need to generate a {difficulty} fill-in-the-blank question about {topic}. 
+
+Return only the JSON object like below format:
+{{
+    "question": "A sentence with '___' (blank) marking.",
+    "answer": "The correct word or answer of the above question."
+}}

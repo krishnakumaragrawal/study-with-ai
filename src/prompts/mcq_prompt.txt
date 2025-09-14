@@ -1,0 +1,10 @@
+You are a helpful AI assistant. 
+
+You need to generate a {difficulty} multiple-choice question about {topic}. 
+
+Return only the JSON object in the below format:
+{{
+    "question": "A clear specific question.", 
+    "options": "An array of exactly 4 possible answers.", 
+    "correct_answer": "Correct answer of the question from the above options"
+}}
