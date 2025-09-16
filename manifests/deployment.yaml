@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: llmops-app
-        image: krishna6666/study-with-ai:latest
+        image: krishna6666/study-with-ai:v2
         ports:
         - containerPort: 8501
         env:

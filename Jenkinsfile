@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    dockerImage = docker.build("${DOCKER_HUB_REPO}:${IMAGE_TAG}")
+                    dockerImage = docker.build("${DOCKER_HUB_REPO}:v2")
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    sed -i 's|image: krishna6666/study-with-ai:.*|image: krishna6666/study-with-ai:${IMAGE_TAG}|' manifests/deployment.yaml
+                    sed -i 's|image: krishnakumaragrawal/study-with-ai:.*|image: krishnakumaragrawal/study-with-ai:${IMAGE_TAG}|' manifests/deployment.yaml
                     """
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
                         git config user.email "kumarkrishna11166@gmail.com"
                         git add manifests/deployment.yaml
                         git commit -m "Update image tag to ${IMAGE_TAG}" || echo "No changes to commit"
-                        git push https://${GIT_USER}:${GIT_PASS}@github.com/krishna6666/study-with-ai.git HEAD:main
+                        git push https://${GIT_USER}:${GIT_PASS}@github.com/krishnakumaragrawal/study-with-ai.git HEAD:main
                         '''
                     }
                 }
