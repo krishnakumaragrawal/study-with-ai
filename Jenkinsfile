@@ -68,16 +68,16 @@ pipeline {
             }
         }
         stage('Apply Kubernetes & Sync App with ArgoCD') {
-             steps {
-                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG_FILE')]) {
-                    sh '''
-                        export KUBECONFIG=$KUBECONFIG_FILE
-                        kubectl version --client
-                        argocd login 34.45.86.204:31704 --username admin --password $(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d) --insecure
-                        argocd app sync gitops
-                    '''
+            steps {
+                script {
+                    kubeconfig(credentialsId: 'kubeconfig', serverUrl: 'https://192.168.49.2:8443') {
+                        sh '''
+                        argocd login 34.45.193.5:31704 --username admin --password $(kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d) --insecure
+                        argocd app sync study
+                        '''
+                    }
                 }
             }
         }
     }
-}
+}   
