@@ -2,3 +2,6 @@
 .env
 mypackage.egg-info/
 logs/
+src/configs/__pycache__
+src/modules/__pycache__
+src/utils/__pycache__
